@@ -7,6 +7,7 @@ metadata:
 spec:
   selector: 
     app: wordpress
+    tier: frontend
   type: NodePort  
   ports:
     - port: 8082
@@ -26,9 +27,7 @@ spec:
      tier: frontend
   strategy:
     type: Recreate
-  #replicas: 1
-  #minReplicas: 1
-  #maxReplicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
@@ -40,8 +39,8 @@ spec:
         name: wordpress
         resources:
           requests:
-            memory: "500Mi"
-            cpu: "300m"
+            memory: "600Mi"
+            cpu: "500m"
           #limits:
             #memory: "600Mi"
             #cpu: "200m"
